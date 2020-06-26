@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EF
+namespace ClubManagementApp.Infrastructure.EntityModel
 {
     using System;
     using System.Collections.Generic;

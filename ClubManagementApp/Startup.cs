@@ -28,9 +28,9 @@ namespace ClubManagementApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddEntityFrameworkSqlServer().;
-            
-            services.AddDbContext<ClubManagementContext>(cfg => { cfg.UseSqlServer("name=") });
+            var connectionString = Configuration.GetConnectionString("ClubManagementDb");
+            services.AddDbContext<ClubManagementContext>(cfg =>  cfg.UseSqlServer(connectionString) );
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -47,6 +47,7 @@ namespace ClubManagementApp
             }
 
             app.UseHttpsRedirection();
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

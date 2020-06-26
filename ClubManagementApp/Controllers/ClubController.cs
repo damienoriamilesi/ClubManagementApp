@@ -9,10 +9,6 @@ namespace ClubManagementApp.Controllers
     [Route("[controller]")]
     public class ClubController : ControllerBase
     {
-        public ClubController()
-        {
-        }
-
         [HttpGet]
         public IEnumerable<IEntityInformation> Get()
         {

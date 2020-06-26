@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EF
+namespace ClubManagementApp.Infrastructure.EntityModel
 {
     using System;
     using System.Collections.Generic;
@@ -18,7 +18,6 @@ namespace EF
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Birthdate { get; set; }
-        public string Property1 { get; set; }
     
         public virtual Licence Licence { get; set; }
         public virtual Gender Gender { get; set; }
