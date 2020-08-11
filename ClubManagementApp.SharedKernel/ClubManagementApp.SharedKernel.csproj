@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClubManagementApp.SharedKernel\ClubManagementApp.SharedKernel.csproj" />
+    <Folder Include="Enum\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 
 </Project>

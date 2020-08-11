@@ -7,14 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClubManagementApp.Infrastructure.EntityModel
+namespace ClubManagementApp.Domain.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Gender
+    public partial class User
     {
-        public short Id { get; set; }
-        public string Label { get; set; }
+        public System.Guid Id { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string Birthdate { get; set; }
+        //public Licence Licence { get; set; }
+        public virtual Gender Gender { get; set; }
     }
 }

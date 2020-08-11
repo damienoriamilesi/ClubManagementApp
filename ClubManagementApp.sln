@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubManagementApp", "ClubManagementApp\ClubManagementApp.csproj", "{98EC7619-A533-4C45-ACDC-001C46FD8F43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClubManagementApp", "ClubManagementApp\ClubManagementApp.csproj", "{98EC7619-A533-4C45-ACDC-001C46FD8F43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubManagementApp.Domain", "ClubManagementApp.Domain\ClubManagementApp.Domain.csproj", "{F8AB1936-B37F-4389-857D-BE7FB399A412}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClubManagementApp.Domain", "ClubManagementApp.Domain\ClubManagementApp.Domain.csproj", "{F8AB1936-B37F-4389-857D-BE7FB399A412}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubManagementApp.Infrastructure", "ClubManagementApp.Infrastructure\ClubManagementApp.Infrastructure.csproj", "{8218E10D-978E-4DBC-9A25-CE7C2D458D86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClubManagementApp.Infrastructure", "ClubManagementApp.Infrastructure\ClubManagementApp.Infrastructure.csproj", "{8218E10D-978E-4DBC-9A25-CE7C2D458D86}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedKernel", "SharedKernel", "{D8C01EE2-6A66-4C17-B624-9D1CA787FE05}"
 EndProject
@@ -15,6 +15,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClubManagementApp.Tests", "ClubManagementApp.Tests\ClubManagementApp.Tests.csproj", "{618034B4-21E0-4267-8930-63FEEE141090}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Company.IDP", "..\Company.IDP\Company.IDP.csproj", "{10A6CEAD-3FEF-4A52-9F8B-A884F1835001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubManagementApp.SharedKernel", "ClubManagementApp.SharedKernel\ClubManagementApp.SharedKernel.csproj", "{153BCA31-0F7F-46C6-AC92-CE76346D3FEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,9 +40,24 @@ Global
 		{8218E10D-978E-4DBC-9A25-CE7C2D458D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8218E10D-978E-4DBC-9A25-CE7C2D458D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8218E10D-978E-4DBC-9A25-CE7C2D458D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{618034B4-21E0-4267-8930-63FEEE141090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{618034B4-21E0-4267-8930-63FEEE141090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{618034B4-21E0-4267-8930-63FEEE141090}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{618034B4-21E0-4267-8930-63FEEE141090}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10A6CEAD-3FEF-4A52-9F8B-A884F1835001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10A6CEAD-3FEF-4A52-9F8B-A884F1835001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10A6CEAD-3FEF-4A52-9F8B-A884F1835001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10A6CEAD-3FEF-4A52-9F8B-A884F1835001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{153BCA31-0F7F-46C6-AC92-CE76346D3FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{153BCA31-0F7F-46C6-AC92-CE76346D3FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{153BCA31-0F7F-46C6-AC92-CE76346D3FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{153BCA31-0F7F-46C6-AC92-CE76346D3FEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{153BCA31-0F7F-46C6-AC92-CE76346D3FEA} = {D8C01EE2-6A66-4C17-B624-9D1CA787FE05}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {428AA882-325A-47BC-9D80-2F47820EA0BD}
