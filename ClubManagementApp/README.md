@@ -1,4 +1,4 @@
-﻿#Install IS4
+﻿# Install IS4
 dotnet new -i IdentityServer4.Templates
 
 ##dotnet new is4empty -n <name/companyname>.IDP
