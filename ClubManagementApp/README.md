@@ -6,7 +6,7 @@ dotnet new -i IdentityServer4.Templates
 ##dotnet new is4id -n <name/companyname>.IDP
 ##dotnet new is4ui -n <name/companyname>.IDP
 
-#ENDPOINTS
+# ENDPOINTS
     - Authorize
     Parameters
         - scope : openid profile
@@ -21,7 +21,7 @@ dotnet new -i IdentityServer4.Templates
 
 
 
-#FLOW
+# FLOW
     1 Client    Authentication Request from client => redirection
     2 IDP       Authorization Endpoint : User authenticates (Login, PWD)
     (3 IDP      asks for Consent) Optional
@@ -30,7 +30,7 @@ dotnet new -i IdentityServer4.Templates
     6 IDP response id_token
     7 Client Validates Token => Claims extraction
 
-#COMMUNICATION TYPES
+# COMMUNICATION TYPES
     - Front Channel
         Information delivered to the browser via URI or Form POST (response_mode)
         => Authorization endpoint
@@ -38,7 +38,7 @@ dotnet new -i IdentityServer4.Templates
     - Server to Server (SAFER)
         => Token endpoint
         
-#IdentityServer4 (OAuth / OpenIdC)
+# IdentityServer4 (OAuth / OpenIdC)
 	- https://jwt.io/
 	- https://swagger.io/docs/specification/authentication/openid-connect-discovery/
 	- https://developer.okta.com/docs/reference/api/oidc/
