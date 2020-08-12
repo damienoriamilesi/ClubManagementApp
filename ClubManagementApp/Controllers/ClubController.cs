@@ -37,7 +37,7 @@ namespace ClubManagementApp.Controllers
         [Route("")]
         public async Task<IEnumerable<Club>> Get()
         {
-            await WriteOutIdentityInformation();
+            //await WriteOutIdentityInformation();
 
             return _context.Clubs.ToList();
         }

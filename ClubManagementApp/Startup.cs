@@ -75,44 +75,62 @@ namespace ClubManagementApp
                     // Redirect to custom error page
                     //options.AccessDeniedPath = "/Authorization/AccessDenied";
                 })
-                .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
+                //.AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
+                //{
+                //    options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                //    options.Authority = "https://localhost:44318/";
+                //    options.ClientId = "imagegalleryapi"; //TODO > To get from external config
+                //    options.ResponseType = "code";
+                //    options.UsePkce = true; //=> Applied for APIs
+                //    ////options.CallbackPath = new PathString("/toto"); // The redirectUri specified in the IdentityServer Config (http://localhost:44363/signin-oidc)
+
+                //    //Add scopes to ClaimsIdentity
+                //    //options.Scope.Add("openid");
+                //    //options.Scope.Add("profile");
+                //    options.Scope.Add("address");
+                //    options.Scope.Add("roles");
+
+                //    //options.Scope.Add("imagegalleryclientapi");
+
+                //    //// Remove a property from ClaimsIdentity => cookie smaller
+                //    options.ClaimActions.DeleteClaim("sid");
+                //    options.ClaimActions.DeleteClaim("idp");
+                //    options.ClaimActions.DeleteClaim("s_hash");
+                //    options.ClaimActions.DeleteClaim("auth_time");
+                //    //options.ClaimActions.DeleteClaim("address");
+
+                //    // Add properties to ClaimsIdentity
+                //    options.ClaimActions.MapUniqueJsonKey("address", "address");
+                //    options.ClaimActions.MapUniqueJsonKey("role", "role");
+
+                //    options.SaveTokens = true;
+                //    options.ClientSecret = "apisecret"; //TODO > To get from external config => equals secret configured into IdentityServer Configs
+                //    options.GetClaimsFromUserInfoEndpoint = true;
+                //    options.TokenValidationParameters = new TokenValidationParameters
+                //    {
+                //        NameClaimType = JwtClaimTypes.GivenName,
+                //        RoleClaimType = JwtClaimTypes.Role
+                //    };
+                //})
+                .AddOpenIdConnect(options =>
                 {
-                    options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                    options.Authority = "https://localhost:44318/";
-                    options.ClientId = "imagegalleryapi"; //TODO > To get from external config
+                    options.UsePkce = true;
+                    options.ClientId = Configuration["okta:ClientId"];
+                    options.ClientSecret = Configuration["okta:ClientSecret"];
+                    options.Authority = Configuration["okta:Issuer"];
+                    options.CallbackPath = "/authorization-code/callback";
                     options.ResponseType = "code";
-                    options.UsePkce = true; //=> Applied for APIs
-                    ////options.CallbackPath = new PathString("/toto"); // The redirectUri specified in the IdentityServer Config (http://localhost:44363/signin-oidc)
-
-                    //Add scopes to ClaimsIdentity
-                    //options.Scope.Add("openid");
-                    //options.Scope.Add("profile");
-                    options.Scope.Add("address");
-                    options.Scope.Add("roles");
-
-                    //options.Scope.Add("imagegalleryclientapi");
-
-                    //// Remove a property from ClaimsIdentity => cookie smaller
-                    options.ClaimActions.DeleteClaim("sid");
-                    options.ClaimActions.DeleteClaim("idp");
-                    options.ClaimActions.DeleteClaim("s_hash");
-                    options.ClaimActions.DeleteClaim("auth_time");
-                    //options.ClaimActions.DeleteClaim("address");
-
-                    // Add properties to ClaimsIdentity
-                    options.ClaimActions.MapUniqueJsonKey("address", "address");
-                    options.ClaimActions.MapUniqueJsonKey("role", "role");
-
                     options.SaveTokens = true;
-                    options.ClientSecret = "apisecret"; //TODO > To get from external config => equals secret configured into IdentityServer Configs
+                    options.UseTokenLifetime = false;
                     options.GetClaimsFromUserInfoEndpoint = true;
+                    options.Scope.Add("openid");
+                    options.Scope.Add("profile");
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        NameClaimType = JwtClaimTypes.GivenName,
-                        RoleClaimType = JwtClaimTypes.Role
+                        NameClaimType = "name"
                     };
-                }
-                );
+                });
+            ;
             #endregion
         }
 
