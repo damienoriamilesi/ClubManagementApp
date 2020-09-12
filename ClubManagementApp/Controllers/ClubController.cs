@@ -46,8 +46,8 @@ namespace ClubManagementApp.Controllers
         [Route("{id:guid}", Name = "GetById")]
         public Club GetById(Guid id)
         {
-            var newClub = new Club { Id = Guid.NewGuid(), Code = "740000001", Name = "NewClub" };
-
+            var newClub = new Club { Code = "740000001", Name = "NewClub" };
+            //newClub.Id = Guid.NewGuid();
             return newClub;
         }
 

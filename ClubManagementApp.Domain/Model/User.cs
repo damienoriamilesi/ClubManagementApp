@@ -12,7 +12,7 @@ namespace ClubManagementApp.Domain.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class User 
     {
         public System.Guid Id { get; set; }
         public string Firstname { get; set; }

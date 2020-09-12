@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -74,6 +75,7 @@ namespace ClubManagementApp
                 {
                     // Redirect to custom error page
                     //options.AccessDeniedPath = "/Authorization/AccessDenied";
+                    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
                 })
                 //.AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
                 //{
@@ -148,6 +150,7 @@ namespace ClubManagementApp
                 }
             }
 
+            app.UseHsts();
             app.UseHttpsRedirection();
 
             app.UseSwagger();
