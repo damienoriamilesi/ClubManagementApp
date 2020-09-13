@@ -88,9 +88,9 @@ namespace ClubManagementApp.Infrastructure.Migrations
                 name: "Clubs",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(nullable: true),
+                    HeadquarterAddress = table.Column<string>(nullable: true),
                     Code = table.Column<string>(nullable: true),
                     CommitteeId = table.Column<Guid>(nullable: true)
                 },
@@ -112,7 +112,7 @@ namespace ClubManagementApp.Infrastructure.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     LicenceTypeId = table.Column<Guid>(nullable: true),
                     UserId = table.Column<Guid>(nullable: true),
-                    ClubId = table.Column<int>(nullable: true)
+                    ClubId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {

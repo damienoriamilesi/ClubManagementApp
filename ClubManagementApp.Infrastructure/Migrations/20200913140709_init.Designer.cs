@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClubManagementApp.Infrastructure.Migrations
 {
     [DbContext(typeof(ClubManagementContext))]
-    [Migration("20200626165916_init")]
+    [Migration("20200913140709_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,16 +23,18 @@ namespace ClubManagementApp.Infrastructure.Migrations
 
             modelBuilder.Entity("ClubManagementApp.Domain.Model.Club", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("CommitteeId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("HeadquarterAddress")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -120,8 +122,8 @@ namespace ClubManagementApp.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("ClubId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ClubId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("LicenceTypeId")
                         .HasColumnType("uniqueidentifier");

@@ -7,6 +7,7 @@ namespace ClubManagementApp.Domain.Model
     public class Club : Entity<Guid>
     {
         public string Name { get; set; }
+        public string HeadquarterAddress { get; set; }
         public string Code { get; set; }
         public Committee Committee { get; set; }
         public IList<Licence> Licences { get; set; }

@@ -16,7 +16,7 @@ namespace ClubManagementApp.Infrastructure
             //if (!optionsBuilder.IsConfigured)
             //    optionsBuilder.UseSqlite("");
 
-
+            //optionsBuilder.UseSqlServer()
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
