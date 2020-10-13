@@ -9,16 +9,14 @@
 
 namespace ClubManagementApp.Domain.Model
 {
-    using System;
-    using System.Collections.Generic;
-    
     public partial class User 
     {
-        public System.Guid Id { get; set; }
+        public System.Guid Id { get; set; } 
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Birthdate { get; set; }
         //public Licence Licence { get; set; }
+        public short GenderId { get; set; }
         public virtual Gender Gender { get; set; }
     }
 }

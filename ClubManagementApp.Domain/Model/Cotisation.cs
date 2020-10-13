@@ -11,5 +11,8 @@ namespace ClubManagementApp.Domain.Model
         public Guid LicenceId { get; set; }
     
         public Licence Licence { get; set; }
+
+        public Guid UserId { get; set; }
+        public User Player { get; set; }
     }
 }

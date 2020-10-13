@@ -8,4 +8,8 @@
     <ProjectReference Include="..\ClubManagementApp.SharedKernel\ClubManagementApp.SharedKernel.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Entities\" />
+  </ItemGroup>
+
 </Project>

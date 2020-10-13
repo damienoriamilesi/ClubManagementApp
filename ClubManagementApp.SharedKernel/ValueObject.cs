@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
  
+// This base class comes from Jimmy Bogard, but with support of inheritance
+// http://grabbagoft.blogspot.com/2007/06/generic-value-object-equality.html
+
 namespace ClubManagementApp.SharedKernel
 {
-    public class ValueObject<T> : IEquatable<T> where T : ValueObject<T>
+    public abstract class ValueObject<T> : IEquatable<T> where T : ValueObject<T>
     {
         public override bool Equals(object obj)
         {
@@ -16,19 +18,64 @@ namespace ClubManagementApp.SharedKernel
             return Equals(other);
         }
 
-        //public override int GetHashCode()
-        //{
-        //    //IEnumerable<FieldInfo> fields = GetFields();
-        //}
+        public override int GetHashCode()
+        {
+            IEnumerable<FieldInfo> fields = GetFields();
+            int startValue = 17;
+            int multiplier = 59;
+
+            int hashCode = startValue;
+
+            foreach (var field in fields)
+            {
+                object value = field.GetValue(this);
+
+                if (value != null)
+                    hashCode = hashCode * multiplier + value.GetHashCode();
+            }
+
+            return hashCode;
+        }
+
+        public virtual bool Equals(T other)
+        {
+            if (other == null) return false;
+
+            Type t = GetType();
+            Type otherType = other.GetType();
+
+            if (t != otherType)
+                return false;
+
+            var fields = t.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+
+            foreach (var field in fields)
+            {
+                object value1 = field.GetValue(other);
+                object value2 = field.GetValue(this);
+
+                if (value1 == null)
+                {
+                    if (value2 != null) return false;
+                }
+                else if (!value1.Equals(value2)) return false;
+            }
+            return true;
+        }
 
         private IEnumerable<FieldInfo> GetFields()
         {
             throw new NotImplementedException();
         }
 
-        public bool Equals([AllowNull] T other)
+        public static bool operator ==(ValueObject<T> x, ValueObject<T> y)
         {
-            throw new NotImplementedException();
+            return x.Equals(y);
+        }
+
+        public static bool operator !=(ValueObject<T> x, ValueObject<T> y)
+        {
+            return !(x==y);
         }
     }
 }
