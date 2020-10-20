@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using System.Net.Http;
 using IdentityModel.Client;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClubManagementApp.Controllers
 {
@@ -39,7 +40,7 @@ namespace ClubManagementApp.Controllers
         {
             //await WriteOutIdentityInformation();
 
-            return _context.Clubs.ToList();
+            return await _context.Clubs.ToListAsync();
         }
 
         [HttpGet]

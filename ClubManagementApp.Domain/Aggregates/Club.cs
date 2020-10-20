@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClubManagementApp.Domain.Model;
+using System;
 
 namespace ClubManagementApp.Domain.Aggregates
 {
@@ -18,5 +19,7 @@ namespace ClubManagementApp.Domain.Aggregates
         //}
 
         public string CommitteeId { get; set; }
+
+        public User[] Administratives { get; set; }
     }
 }
